@@ -24,6 +24,7 @@ namespace HomeManager
     public sealed partial class MainPage : Page
     {
         LightManager HallLights = new LightManager();
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -34,7 +35,7 @@ namespace HomeManager
         private async void btnOn_Click(object sender, RoutedEventArgs e)
         {
             MakeUiEnabled(false);
-            await HallLights.TurnOnAsync("Tubelight");
+            await HallLights[0].TurnOnAsync();
             MakeUiEnabled(true);
         }
 
@@ -42,7 +43,7 @@ namespace HomeManager
         private async void btnOff_Click(object sender, RoutedEventArgs e)
         {
             MakeUiEnabled(false);
-            await HallLights.TurnOffAsync("Tubelight");
+            await HallLights[0].TurnOffAsync();
             MakeUiEnabled(true);
         }
 
@@ -54,12 +55,12 @@ namespace HomeManager
 
         private void sliderTransition_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
-            HallLights.TransitionSpeed = (int)sliderTransition.Value;
+            HallLights[0].TransitionSpeed = (int)sliderTransition.Value;
         }
 
         private void sliderBrightness_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
-            HallLights.SetBrightness("Tubelight", (int)sliderBrightness.Value);
+            HallLights[0].Brightness = (int)sliderBrightness.Value;
         }
     }
 }
