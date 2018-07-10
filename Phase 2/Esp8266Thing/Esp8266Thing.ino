@@ -1,8 +1,8 @@
 #include "PinManager.h"
 #include <ESP8266WiFi.h>;
 
-char *userName = "Ankur";
-char *pwd = "youCANhack1";
+char *userName = "Ankurphn";
+char *pwd = "26587abc";
 
 WiFiServer server(80);
 PinManager pins;

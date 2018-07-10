@@ -9,7 +9,7 @@ namespace esp8266Test
 {
     class Program
     {
-        static Uri ip = new Uri("http://192.168.1.101");
+        static Uri ip = new Uri("http://192.168.43.92");
         static void Main(string[] args)
         {
             doSample();
@@ -18,16 +18,16 @@ namespace esp8266Test
 
         private static async void doSample()
         {
-            await set(16, 1023);
-            await get(16);
+            await set(5, 1023);
+            await get(5);
             await status();
             await verify('2');
 
             while (true)
             {
-                await set(16, 0);
+                await set(5, 0);
                 await Task.Delay(TimeSpan.FromSeconds(1));
-                await set(16, 1023);
+                await set(5, 1023);
                 await Task.Delay(TimeSpan.FromSeconds(1));
             }
         }

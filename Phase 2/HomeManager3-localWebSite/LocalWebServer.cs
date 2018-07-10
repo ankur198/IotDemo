@@ -60,7 +60,8 @@ namespace HomeManager
         {
             foreach (var localHost in NetworkInformation.GetHostNames())
             {
-                if (localHost.IPInformation != null)
+                if (localHost.IPInformation != null && localHost.Type == Windows.Networking.HostNameType.Ipv4)
+
                 {
                     return localHost.ToString();
                 }
